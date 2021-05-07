@@ -1,0 +1,6 @@
+pdfseparate ./dataset/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021.pdf ./pdf-parts/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-%d
+pdftoppm -singlefile -jpeg -r 600 -jpegopt quality=100 ./pdf-parts/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1 ./jpeg/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1
+img2pdf ./jpeg/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1.jpg -o ./jpeg-pdf/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1-jpeg.pdf
+ocrmypdf -f --tesseract-pagesegmode 6 --jpeg-quality 100 ./jpeg-pdf/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1-jpeg.pdf ./pdf-searchable/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1-jpeg-ocr.pdf -l spa
+pdftotext -layout ./pdf-searchable/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1-jpeg-ocr.pdf ./pdftotext-out/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1-jpeg-ocr-pdftotext.txt
+tesseract --psm 6 ./jpeg/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1.jpg ./tesseract-out/2021-04-24_e8910e6410c29c520b8c97bfd0d6cb3c_Marzo_2021/part-1-jpeg-tesseract
